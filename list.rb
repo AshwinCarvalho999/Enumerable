@@ -7,17 +7,27 @@ class MyList
     @list = list
   end
 
-  attr_reader :list
-
   def each
-    yield @list
+    counter = 0
+
+    while counter < @list.length
+
+      yield(@list[counter])
+
+      counter += 1
+
+    end
   end
 end
 
-numbers = MyList.new(1, 2, 3, 4)
-numbers.each { |number| puts number }
-numbers.all? { |number| number < 5 }
-numbers.all? { |number| number > 5 }
-numbers.any? { |number| number == 2 }
-numbers.any? { |number| number == 5 }
-numbers.filter(&:even?)
+list = MyList.new(1, 2, 3, 4)
+
+list.each do |e|
+  p(e)
+end
+
+p(list.all? { |e| e < 5 })
+p(list.all? { |e| e > 5 })
+p(list.any? { |e| e == 2 })
+p(list.any? { |e| e == 5 })
+p(list.filter(&:even?))
