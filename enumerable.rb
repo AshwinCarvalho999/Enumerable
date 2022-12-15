@@ -5,11 +5,11 @@ module MyEnumerable
     puts arr.length == list.length
   end
 
-  # def any?
-  #   arr = []
-  #   list.each { |el| arr.push(el) if yield el }
-  #   puts !arr.empty?
-  # end
+  def any?
+    arr = []
+    list.each { |el| arr.push(el) if yield el }
+    puts !arr.empty?
+  end
 
   # def filter
   #   arr = []
